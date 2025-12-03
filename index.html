@@ -185,7 +185,7 @@
             <button id="nao">Não</button>
         </div>
 
-        <div style="user-select: none;" id="mensagem-linda">
+        <div id="mensagem-linda">
             Você acabou de me dar o melhor “sim” da minha vida, Karen! ❤️🥺<br>
             <br>
             Prometo te tratar igual a uma princesa e sempre cuidar de você, independentemente do que aconteça.<br>
@@ -282,6 +282,16 @@
                 setTimeout(() => c.remove(), 5000);
             }, 350);
         }
-    </script>
+
+    // Seleciona o elemento pelo ID
+    const mensagem = document.getElementById('mensagem-linda');
+
+    // Impede seleção de texto
+    mensagem.style.userSelect = 'none';
+    mensagem.style.webkitUserSelect = 'none'; // Safari
+    mensagem.style.msUserSelect = 'none';     // IE/Edge
+</script>
+
+    
 </body>
 </html>
