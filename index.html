@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quer namorar comigo?</title>
+    <title>Pedido especial </title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -42,25 +42,26 @@
 
         /* --- CONTAINER COM BORDA BRILHANTE --- */
         .container {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.15); /* Mais transparente */
-            padding: 50px;
-            border-radius: 25px;
-            backdrop-filter: blur(6px); /* Blur mais visível */
-            width: 90%;
-            max-width: 900px;
-            margin: auto;
-            margin-top: 80px;
-            position: relative;
-            transition: 0.8s ease;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25); /* um pouco mais visível */
+    padding: 50px;
+    border-radius: 25px;
+    backdrop-filter: blur(4px); /* blur mais perceptível */
+    -webkit-backdrop-filter: blur(4px); /* para Safari */
+    background-clip: padding-box;
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    margin-top: 80px;
+    position: relative;
+    transition: 0.8s ease;
+    box-shadow:
+        0 0 15px rgba(255, 0, 150, 0.7),
+        0 0 25px rgba(255, 0, 150, 0.5),
+        0 0 50px rgba(255, 0, 150, 0.3);
+    animation: neonPulse 3s infinite alternate ease-in-out;
+}
 
-            box-shadow:
-                0 0 15px rgba(255, 0, 150, 0.7),
-                0 0 25px rgba(255, 0, 150, 0.5),
-                0 0 50px rgba(255, 0, 150, 0.3);
-
-            animation: neonPulse 3s infinite alternate ease-in-out;
-        }
 
         @keyframes neonPulse {
             0% {
@@ -110,32 +111,32 @@
 
         /* BRILHO DO BOTÃO SIM */
         #sim {
-            background-color: #8affc1;
+            background-color: #1efc68;
             font-weight: bold;
-            box-shadow: 0 0 10px #8affc1, 0 0 20px #8affc1;
+            box-shadow: 0 0 10px #1efc68, 0 0 20px #1efc68;
             animation: glow 2s infinite alternate ease-in-out;
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 10px #8affc1, 0 0 25px #8affc1; }
-            to { box-shadow: 0 0 20px #8affc1, 0 0 45px #8affc1; }
+            from { box-shadow: 0 0 10px #1efc68, 0 0 25px #1efc68; }
+            to { box-shadow: 0 0 20px #1efc68, 0 0 45px #1efc68; }
         }
 
         #sim:hover { transform: scale(1.18); }
 
         /* BRILHO DO BOTÃO NÃO */
         #nao {
-            background-color: #ff6b6b;
+            background-color: #f33e3e;
             color: white;
             position: relative;
             font-weight: bold;
-            box-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b;
+            box-shadow: 0 0 10px #f33e3e, 0 0 20px #f33e3e;
             animation: glowNao 2s infinite alternate ease-in-out;
         }
 
         @keyframes glowNao {
-            from { box-shadow: 0 0 10px #ff6b6b, 0 0 25px #ff6b6b; }
-            to { box-shadow: 0 0 20px #ff6b6b, 0 0 45px #ff6b6b; }
+            from { box-shadow: 0 0 10px #f33e3e, 0 0 25px #f33e3e; }
+            to { box-shadow: 0 0 20px #f33e3e, 0 0 45px #f33e3e; }
         }
 
         #mensagem-linda {
@@ -169,6 +170,7 @@
             0% { transform: scale(0.5) translate(0,0); opacity: 1; }
             100% { transform: scale(2.5) translate(var(--x), var(--y)); opacity: 0; }
         }
+        
     </style>
 </head>
 
@@ -178,7 +180,7 @@
     </video>    
 
     <div class="container" id="container">
-        <h1 id="titulo">Karen Michelly, quer namorar comigo? ❤️</h1>
+        <h1 style="user-select: none;" id="titulo">Karen Michelly, aceita namorar comigo? ❤️</h1>
 
         <div class="buttons" id="botoes">
             <button id="sim">Sim</button>
@@ -190,7 +192,7 @@
             <br>
             Prometo te tratar igual a uma princesa e sempre cuidar de você, independentemente do que aconteça.<br>
             <br>
-            Eu te amo infinitamente!
+            Feito por Thiago para minha vida, Karen, a minha paixão. Eu te amo infinitamente!
         </div>
     </div>
 
@@ -282,6 +284,16 @@
                 setTimeout(() => c.remove(), 5000);
             }, 350);
         }
-    </script>
+
+    // Seleciona o elemento pelo ID
+    const mensagem = document.getElementById('mensagem-linda');
+
+    // Impede seleção de texto
+    mensagem.style.userSelect = 'none';
+    mensagem.style.webkitUserSelect = 'none'; // Safari
+    mensagem.style.msUserSelect = 'none';     // IE/Edge
+</script>
+
+    
 </body>
 </html>
